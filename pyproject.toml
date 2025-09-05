@@ -1,0 +1,38 @@
+[project]
+name = "package-name"
+version = "0.1.0"
+description = "literally everything in one package"
+readme = "README.md"
+authors = [
+    { name = "ViscousOx", email = "jeffreylstamp@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "sphinx>=8.2.3",
+]
+
+[project.scripts]
+package-name = "package_name.main:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.12",
+]
+
+[tool.pytest.ini_options]
+addopts = "--maxfail=1 --cov=testing_demo"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
+docstring-code-format = true
+docstring-code-line-length = 100
